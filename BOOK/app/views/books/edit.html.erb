@@ -1,0 +1,15 @@
+<% if flash[:notice] %>
+<p><%= flash[:notice]%></p>
+<% end %>
+<h1>Editing Book</h1>
+   <%= render 'error', locals: { book: @book} %>
+   
+<%= form_with model:@book, local: true do |f| %>
+  <h4>title</h4>
+  <%= f.text_field :title %>
+  <h4>body</h4>
+  <%= f.text_area :body %>
+  <%= f.submit 'Update Book' %>
+<% end %>
+<%= link_to "show", book_path() %>
+<%= link_to "back", books_path %>
